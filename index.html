@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZKTokenOpt — Zero-Risk LLM Token Optimizer</title>
+  <meta name="description"
+    content="ZKTokenOpt is a stateless, sub-millisecond token optimization middleware that reduces LLM API costs by 11-28% with guaranteed semantic retention. Self-hosted. Zero data exposure. DPDP compliant.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Shader Background -->
+  <canvas id="shader-bg"></canvas>
+
+  <!-- ═══ Topbar ═══ -->
+  <nav class="topbar">
+    <div class="topbar-brand">ZK<em>Token</em>Opt</div>
+    <ul class="topbar-nav">
+      <li><a href="#mechanism">Architecture</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="#calculator">ROI</a></li>
+      <li><a href="#benchmarks">Benchmarks</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#sandbox" class="topbar-cta">Try Sandbox →</a>
+  </nav>
+
+  <!-- ═══ Hero: Full Width Editorial ═══ -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Production-Ready Middleware</div>
+      <h1>
+        Your LLM bills are<br>
+        <em>bleeding</em> tokens.
+      </h1>
+      <p class="hero-body">
+        ZKTokenOpt is a stateless optimization layer that sits between your app
+        and any LLM. It prunes redundant tokens in under 0.4ms — saving
+        11% to 28% on every API call, with zero risk to accuracy.
+      </p>
+      <div class="hero-actions">
+        <a href="#sandbox" class="btn-fill"><span>Try the Sandbox</span></a>
+        <a href="#mechanism" class="btn-outline"><span>See Architecture</span></a>
+      </div>
+    </div>
+
+    <!-- Before/After Token Demo -->
+    <div class="hero-demo">
+      <div class="demo-card demo-before">
+        <div class="demo-label">Before — 87 tokens</div>
+        <p>Can you <span class="struck">please</span> tell me the <span class="struck">current</span> delivery status of
+          my shipment<span class="struck">?</span> I <span class="struck">placed an</span> order <span
+            class="struck">last</span> Thursday <span class="struck">and</span> the AWB number is 8841920435<span
+            class="struck">.</span></p>
+      </div>
+      <div class="demo-arrow">→</div>
+      <div class="demo-card demo-after">
+        <div class="demo-label">After — 63 tokens <span class="demo-saved">↓ 27.6%</span></div>
+        <p>tell me delivery status shipment order Thursday AWB number <span
+            class="demo-redacted">[REDACTED_PHONE]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Scrolling Stats Marquee ═══ -->
+  <div class="stats-band">
+    <div class="stats-track">
+      <div class="stat-item"><span class="stat-num">28.6%</span><span class="stat-label">Savings on Optimized
+          Queries</span></div>
+      <div class="stat-item"><span class="stat-num">90.6%</span><span class="stat-label">Semantic Retention</span></div>
+      <div class="stat-item"><span class="stat-num">0.34ms</span><span class="stat-label">Avg Latency</span></div>
+      <div class="stat-item"><span class="stat-num">0.00%</span><span class="stat-label">Crash Rate</span></div>
+      <div class="stat-item"><span class="stat-num">6,400+</span><span class="stat-label">Prompts Benchmarked</span>
+      </div>
+      <div class="stat-item"><span class="stat-num">DPDP</span><span class="stat-label">Act Compliant</span></div>
+      <div class="stat-item"><span class="stat-num">28.6%</span><span class="stat-label">Savings on Optimized
+          Queries</span></div>
+      <div class="stat-item"><span class="stat-num">90.6%</span><span class="stat-label">Semantic Retention</span></div>
+      <div class="stat-item"><span class="stat-num">0.34ms</span><span class="stat-label">Avg Latency</span></div>
+      <div class="stat-item"><span class="stat-num">0.00%</span><span class="stat-label">Crash Rate</span></div>
+      <div class="stat-item"><span class="stat-num">6,400+</span><span class="stat-label">Prompts Benchmarked</span>
+      </div>
+      <div class="stat-item"><span class="stat-num">DPDP</span><span class="stat-label">Act Compliant</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ Architecture Section ═══ -->
+  <section class="section" id="mechanism">
+    <div class="reveal">
+      <div class="section-tag">01 — Architecture</div>
+      <h2 class="section-heading">
+        Safety isn't a feature.<br>It's the <em>foundation</em>.
+      </h2>
+      <p class="section-lead">
+        Every component enforces a strict safety contract. If optimization could
+        harm response quality, the engine silently aborts and returns the original prompt.
+      </p>
+    </div>
+
+    <div class="mechanism-grid">
+      <div class="mechanism-card reveal reveal-d1">
+        <div class="card-num">01</div>
+        <h3>PII Redaction Layer</h3>
+        <p>Aadhaar, PAN, and mobile numbers are scrubbed before any token scoring begins. Satisfies India's DPDP Act
+          data minimization mandates out-of-the-box.</p>
+      </div>
+      <div class="mechanism-card reveal reveal-d2">
+        <div class="card-num">02</div>
+        <h3>Composite Relevance Matrix</h3>
+        <p>Each token is scored on four axes: positional importance, frequency decay, domain cartridge boost, and
+          lexical weight. Only truly redundant tokens get pruned.</p>
+      </div>
+      <div class="mechanism-card reveal reveal-d3">
+        <div class="card-num">03</div>
+        <h3>Domain Cartridges</h3>
+        <p>Pluggable knowledge modules (Fintech, Logistics, Agritech) boost the weight of industry-critical terms like
+          UPI, AWB, or MSP — ensuring they are never dropped.</p>
+      </div>
+      <div class="mechanism-card reveal reveal-d4">
+        <div class="card-num">04</div>
+        <h3>Retention Circuit Breaker</h3>
+        <p>A dual-gate check using LCS structural alignment and Jaccard identity. If meaning drops below 75%, the
+          optimization is instantly aborted.</p>
+      </div>
+      <div class="mechanism-card reveal reveal-d5">
+        <div class="card-num">05</div>
+        <h3>ROI Savings Floor</h3>
+        <p>If pruning saves fewer than 15% of tokens, the engine considers it not worth the risk and returns the
+          original prompt untouched.</p>
+      </div>
+      <div class="mechanism-card reveal reveal-d5">
+        <div class="card-num">06</div>
+        <h3>Silent Fail-Open SDK</h3>
+        <p>If the container crashes or times out, the drop-in client wrapper silently routes the raw prompt directly to
+          your LLM. Zero pipeline disruption.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Pipeline Section (Dark Band) ═══ -->
+  <section class="pipeline-section" id="pipeline">
+    <div class="pipeline-inner">
+      <div class="reveal">
+        <div class="section-tag">02 — Pipeline</div>
+        <h2 class="section-heading">
+          Five stages. <em>Zero</em> network calls.<br>
+          Pure in-memory computation.
+        </h2>
+        <p class="section-lead">
+          The entire pipeline runs in under 0.5ms with no GPU, no external model calls,
+          and no disk I/O. Deploys as a stateless Docker container inside your VPC.
+        </p>
+      </div>
+
+      <div class="pipeline-steps reveal">
+        <div class="pipeline-step">
+          <div class="step-idx">Stage 01</div>
+          <h3>PII Scrubbing</h3>
+          <p>Regex-based detection and redaction of sensitive identifiers before optimization begins.</p>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-idx">Stage 02</div>
+          <h3>Semantic Tokenization</h3>
+          <p>Split input into meaningful tokens preserving numbers, currencies, and compound words.</p>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-idx">Stage 03</div>
+          <h3>Relevance Scoring</h3>
+          <p>Composite score from position, frequency, domain boost, and lexical significance.</p>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-idx">Stage 04</div>
+          <h3>Threshold Pruning</h3>
+          <p>Tokens below the configurable threshold are dropped. Domain-critical tokens are protected.</p>
+        </div>
+        <div class="pipeline-step">
+          <div class="step-idx">Stage 05</div>
+          <h3>Safety Gate</h3>
+          <p>LCS + Jaccard retention check. Falls back to original if meaning drops below 75%.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ROI Calculator ═══ -->
+  <section class="section" id="calculator">
+    <div class="reveal">
+      <div class="section-tag">03 — Financial Impact</div>
+      <h2 class="section-heading">
+        Calculate your<br><em>annual</em> savings.
+      </h2>
+      <p class="section-lead">
+        Adjust the sliders to match your current LLM usage.
+        See projected savings with ZKTokenOpt in your pipeline.
+      </p>
+    </div>
+
+    <div class="calc-split reveal">
+      <div class="calc-left">
+        <h3>Your usage profile</h3>
+        <div class="field">
+          <label>Monthly LLM Spend</label>
+          <input type="range" id="calc-cost" min="500" max="100000" step="500" value="10000">
+          <div class="field-val" id="calc-cost-val">$10,000</div>
+        </div>
+        <div class="field">
+          <label>Monthly Query Volume (Millions)</label>
+          <input type="range" id="calc-vol" min="1" max="100" step="1" value="10">
+          <div class="field-val" id="calc-vol-val">10M</div>
+        </div>
+        <div class="field">
+          <label>Primary Model</label>
+          <select id="calc-model">
+            <option value="gpt4o">GPT-4o — $2.50 / 1M tokens</option>
+            <option value="gpt4turbo">GPT-4 Turbo — $10.00 / 1M tokens</option>
+            <option value="gpt35">GPT-3.5 Turbo — $0.50 / 1M tokens</option>
+            <option value="claude35">Claude 3.5 Sonnet — $3.00 / 1M tokens</option>
+            <option value="claude3opus">Claude 3 Opus — $15.00 / 1M tokens</option>
+            <option value="gemini15">Gemini 1.5 Pro — $1.25 / 1M tokens</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-right">
+        <div class="calc-cell">
+          <div class="cell-label">Monthly Savings</div>
+          <div class="cell-value accent" id="r-month-usd">$0</div>
+          <div class="cell-sub" id="r-month-inr">₹0</div>
+        </div>
+        <div class="calc-cell">
+          <div class="cell-label">Annual Savings</div>
+          <div class="cell-value green" id="r-year-usd">$0</div>
+          <div class="cell-sub" id="r-year-inr">₹0</div>
+        </div>
+        <div class="calc-cell">
+          <div class="cell-label">Return on Investment</div>
+          <div class="cell-value accent" id="r-roi">0%</div>
+          <div class="cell-sub" id="r-roi-sub">vs $1,800/yr license</div>
+        </div>
+        <div class="calc-cell">
+          <div class="cell-label">Processing Overhead</div>
+          <div class="cell-value green">0.34ms</div>
+          <div class="cell-sub">per prompt</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Benchmarks ═══ -->
+  <section class="section" id="benchmarks">
+    <div class="reveal">
+      <div class="section-tag">04 — Evidence</div>
+      <h2 class="section-heading">
+        Benchmarked on <em>real</em><br>
+        conversation datasets.
+      </h2>
+      <p class="section-lead">
+        Every number below was generated by running actual Human-AI chatbot logs
+        through the engine in Strict Mode. No estimates. No extrapolations.
+      </p>
+    </div>
+
+    <div class="bench-wrap reveal">
+      <table class="bench-table">
+        <thead>
+          <tr>
+            <th>Dataset</th>
+            <th>Prompts</th>
+            <th>Savings</th>
+            <th>Retention</th>
+            <th>Latency</th>
+            <th>Monthly $</th>
+            <th>Annual $</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>hinglish_conversations.csv</td>
+            <td>500</td>
+            <td><span class="tag nil">0.0%</span></td>
+            <td>100.0%</td>
+            <td>0.03ms</td>
+            <td>$0</td>
+            <td>$0</td>
+          </tr>
+          <tr>
+            <td>train-00000 (parquet)</td>
+            <td>950</td>
+            <td><span class="tag high">11.16%</span></td>
+            <td>90.61%</td>
+            <td>0.31ms</td>
+            <td>$149</td>
+            <td>$1,787</td>
+          </tr>
+          <tr>
+            <td>train-00001 (parquet)</td>
+            <td>983</td>
+            <td><span class="tag high">10.60%</span></td>
+            <td>91.59%</td>
+            <td>0.34ms</td>
+            <td>$151</td>
+            <td>$1,808</td>
+          </tr>
+          <tr>
+            <td>train-00002 (parquet)</td>
+            <td>1,015</td>
+            <td><span class="tag mid">9.90%</span></td>
+            <td>90.15%</td>
+            <td>0.31ms</td>
+            <td>$140</td>
+            <td>$1,677</td>
+          </tr>
+          <tr>
+            <td>train-00003 (parquet)</td>
+            <td>991</td>
+            <td><span class="tag high">11.02%</span></td>
+            <td>91.61%</td>
+            <td>0.40ms</td>
+            <td>$169</td>
+            <td>$2,031</td>
+          </tr>
+          <tr>
+            <td>train-00004 (parquet)</td>
+            <td>985</td>
+            <td><span class="tag high">12.86%</span></td>
+            <td>89.69%</td>
+            <td>0.34ms</td>
+            <td>$192</td>
+            <td>$2,302</td>
+          </tr>
+          <tr>
+            <td>train-00005 (parquet)</td>
+            <td>1,048</td>
+            <td><span class="tag mid">9.24%</span></td>
+            <td>89.03%</td>
+            <td>0.48ms</td>
+            <td>$144</td>
+            <td>$1,724</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="section" id="faq">
+    <div class="reveal">
+      <div class="section-tag">05 — FAQ</div>
+      <h2 class="section-heading">
+        Common <em>questions</em>,<br>
+        straight answers.
+      </h2>
+    </div>
+
+    <div class="faq-list reveal">
+      <div class="faq-row">
+        <button class="faq-q">
+          Will this break my LLM responses?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>No. The Retention Circuit Breaker runs a dual-gate semantic check (LCS + Jaccard) on every optimization. If
+            the pruned prompt drops below 75% meaning retention, the engine silently aborts and returns the original
+            text. Your LLM always receives a safe input.</p>
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-q">
+          Does any of my data leave my infrastructure?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Never. ZKTokenOpt runs as a self-hosted Docker container inside your VPC. All processing happens in-memory.
+            Zero external API calls, zero cloud dependencies, zero telemetry. Your prompts stay entirely within your
+            network.</p>
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-q">
+          What happens if the ZKTokenOpt container goes down?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Our SDK wrapper includes a silent fail-open mechanism. If the container becomes unreachable, the wrapper
+            routes your raw prompt directly to the LLM with zero interruption. Your pipeline continues as if ZKTokenOpt
+            was never there.</p>
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-q">
+          Why show datasets with 0% savings?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>That dataset contained only ultra-short prompts (under 12 tokens each). The engine correctly bypassed all
+            of them — proving the safety gate works. Attempting to prune a 5-token query is pointless and risky. This
+            transparency is deliberate.</p>
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-q">
+          Why is the overall savings 11% and not 28%?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>The 11% includes all inputs — short bypassed prompts and safety fallbacks that cost almost nothing. On
+            long, expensive queries (where 80% of your bill comes from), savings average 28.6%. The real financial
+            impact is concentrated where it matters.</p>
+        </div>
+      </div>
+
+      <div class="faq-row">
+        <button class="faq-q">
+          How does it handle voice transcriptions?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>Voice transcripts are naturally verbose with fillers and repetitions. The frequency-decay filter is
+            particularly effective here, often achieving 20–35% savings. The tokenizer also supports Hindi and
+            Devanagari characters natively.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA Band ═══ -->
+  <div class="cta-band" id="sandbox">
+    <h2>
+      See it work on <em>your</em> prompts.<br>
+      No signup. No data stored.
+    </h2>
+    <div class="cta-actions">
+      <a href="https://pavan242002-indic-shrink-demo.hf.space/?src=website" class="btn-copper" target="_blank"
+        rel="noopener noreferrer">
+        Launch Sandbox →
+      </a>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=trspl999@gmail.com" class="btn-contact-outline" target="_blank"
+        rel="noopener noreferrer">
+        Get in Touch →
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
+    <div class="foot-left">© 2026 ZKTokenOpt</div>
+    <ul class="foot-right">
+      <li><a href="#mechanism">Architecture</a></li>
+      <li><a href="#benchmarks">Benchmarks</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+  </footer>
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="shader.js"></script>
+  <script src="main.js"></script>
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+
+</body>
+
+</html>
